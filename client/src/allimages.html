@@ -3,11 +3,57 @@
       <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   
       <link href='custom.css' rel='stylesheet' type='text/css'>      
-      <link href='../dist/css/jquery.mb.bgndgallery.min.css' rel='stylesheet' type='text/css'>      
+      <link href='../lib/jquery.mb.bgndGallery-1.9.5/dist/css/jquery.mb.bgndgallery.min.css' rel='stylesheet' type='text/css'>      
             
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>         
       <script type="text/javascript" src="../lib/jquery.mb.bgndGallery-1.9.5/dist/jquery.mb.bgndGallery.js"></script>
+      <script type="text/javascript" src="AllImagesGallery.js"></script>
   
+<script>
+
+function AllImagesGallery() {
+    this.images = [];
+       
+    this.load = function() {
+        this.getAllImages()
+            .then((res) => {this.images = res.images})
+            .then(this.loadGallery());
+
+    }    
+
+    this.getAllImages = function()
+    {        
+        const response = await fetch ('/api/album/tur');
+        const body = await response.json();
+        if(response.status !== 200) throw Error(body.message);
+        return body;  
+    }
+
+    this.loadGallery = function (){
+        var myGallery = new mbBgndGallery({
+            containment:"body", // or "#myGalleryElement"
+            timer:4000,
+            effTimer:2000,
+            controls:"#gallery_controls",
+            grayScale:false,
+            // If your server allow directory listing
+            //folderPath:"elements/",
+            // else:
+            images:[
+                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/1.jpg",
+                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/2.jpg",
+                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/3.jpg",
+                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/4.jpg",
+                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/5.jpg",
+                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/6.jpg"               
+            ],
+        });
+        myGallery.images = this.images;             
+    }
+}
+
+</script>
+
     </head>
     <body >
       <div class="main">

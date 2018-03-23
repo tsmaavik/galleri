@@ -3,16 +3,16 @@ function AllImagesGallery() {
     this.images = [];
        
     this.load = function() {
-        this.images = this.getAllImages();
+        this.getAllImages()
+            .then((res) => {this.images = res.images});
     }    
 
     this.getAllImages = function()
     {        
-        const response = await fetch ('/api/images/');
+        const response = await fetch ('/api/album/tur');
         const body = await response.json();
         if(response.status !== 200) throw Error(body.message);
-        return body;
-  
+        return body;  
     }
 
     this.loadGallery = function (){
@@ -34,7 +34,6 @@ function AllImagesGallery() {
                 "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/6.jpg"               
             ],
         });
+        myGallery.images = this.images;     
     }
-
-
 }
