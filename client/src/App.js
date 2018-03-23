@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import './App.css';
 import {Home} from './components/Home';
 import {Album} from './components/Album';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <header className="App-header">          
-            <a href="/"><h1 className="App-title">Album</h1></a>
-          </header>
-          <div className="App-main">          
+        <div className="main">
+          <div class="head center">
+                <ul>
+                  <li><Link to='/'>Album</Link></li>
+                  <li><Link to='/slide'>Alle bilder</Link></li>	
+                </ul>
+              </div>
+          <div className="content center">          
             <Route exact={true} path = "/" component={Home}/>
             <Route path = "/:album" render={(m) => { 
               return (<Album name={m.match.params.album}/>);

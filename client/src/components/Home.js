@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import {jQuery} from '../../node_modules/jquery/dist/jquery';
-import {nanogallery2} from '../../node_modules/nanogallery2/dist/jquery.nanogallery2';
+///TODO: Finn ut hvorfor jQuery/nanogallery ikke lastes riktig.
+///HACK: Lagt til import i index.html
+// import {jQuery} from '../../node_modules/jquery/dist/jquery';
+// import {nanogallery2} from '../../node_modules/nanogallery2/dist/jquery.nanogallery2';
 
 export class Home extends Component {
     constructor()  { 
