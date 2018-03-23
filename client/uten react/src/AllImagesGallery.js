@@ -1,13 +1,15 @@
-
-function AllImagesGallery() {
-    this.images = [];
+class AllImagesGallery {    
+    constructor(){
+        this.images = [];
+    }    
        
-    this.load = function() {
+    load() {
         this.getAllImages()
-            .then((res) => {this.images = res.images});
+            .then((res) => {this.images = res.images})
+            .then(this.loadGallery());
     }    
 
-    this.getAllImages = function()
+    async getAllImages()
     {        
         const response = await fetch ('/api/album/tur');
         const body = await response.json();
@@ -15,9 +17,9 @@ function AllImagesGallery() {
         return body;  
     }
 
-    this.loadGallery = function (){
+    loadGallery(){
         var myGallery = new mbBgndGallery({
-            containment:"body", // or "#myGalleryElement"
+            containment:"bgndGallery", // or "#myGalleryElement"
             timer:4000,
             effTimer:2000,
             controls:"#gallery_controls",
@@ -35,5 +37,5 @@ function AllImagesGallery() {
             ],
         });
         myGallery.images = this.images;     
-    }
+    }    
 }

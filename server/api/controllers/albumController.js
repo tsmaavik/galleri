@@ -2,7 +2,7 @@
 require('../models/album.js');
 const fs = require('fs');
 
-const SUPPORTED_EXT = "jpg, gif, png";
+const SUPPORTED_EXT = "jpg, jpeg, gif, png";
 const ALBUM_ROOT = "C:\\Users\\Trond\\Documents\\Kode\\AlbumSlideshow\\album\\";
 
 exports.getAlbums = function(req, res){    
