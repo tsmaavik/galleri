@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <link href="custom.css" rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/nanogallery2@2.1.0/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://unpkg.com/nanogallery2@2.1.0/dist/jquery.nanogallery2.min.js"></script>
+
+  </head>
+  <body>
+<div class="main">
+	<div class="head center">
+		<span><h1>Album</h1></span>	
+	</div>
+<div class="content center">
+    <div id="nanogallery2" data-nanogallery2='{
+      "kind":             "nano_photos_provider2",
+      "dataProvider":     "http://localhost:8080/nano_photos_provider2.php",
+        "thumbnailWidth": "auto",
+        "thumbnailHeight": "200",
+        "thumbnailLabel": {
+          "align": "left"
+        },
+	"thumbnailL1Label": { 
+		"display":"true"
+	},
+        "thumbnailHoverEffect2": "toolsAppear|imageScale150",
+        "thumbnailAlignment": "justified"
+
+      }'>
+
+<!--
+        "userID": "44761156@N00",
+        "kind": "flickr",
+
+      "kind":             "nano_photos_provider2",
+      "dataProvider":     "http://localhost:8080/nano_photos_provider2.php",
+-->
+      
+    </div>
+</diV>
+	</div>
+  </body>
+</html>

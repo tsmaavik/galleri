@@ -1,0 +1,31 @@
+body, html {
+ height:100%;
+ margin 0;
+ background-color:#222222;
+}
+
+.main {
+ background-color:#222222;
+}
+
+.head {
+ color:#fff;
+ height:150px;
+ padding-top: 50px;
+ font-family: "Arial";
+}
+
+.content {
+    width: 750px;
+    border: 2px solid white;
+    padding: 10px;
+
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+
