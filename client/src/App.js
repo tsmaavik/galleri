@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import './App.css';
 import {Home} from './components/Home';
 import {Album} from './components/Album';
+import { Slideshow } from './components/Slideshow';
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
               </div>
           <div className="content center">          
             <Route exact={true} path = "/" component={Home}/>
+            <Route exact={true} path = "/slide" component={Slideshow}/>
             <Route path = "/:album" render={(m) => { 
               return (<Album name={m.match.params.album}/>);
             }}/>

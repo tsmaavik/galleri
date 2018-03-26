@@ -7,11 +7,13 @@
             
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>         
       <script type="text/javascript" src="../lib/jquery.mb.bgndGallery-1.9.5/dist/jquery.mb.bgndGallery.js"></script>
-      <script type="text/javascript" src="AllImagesGallery.js"></script>
+      <script type="text/javascript" src="./AllImagesGallery.js"></script>
   
-<script>
-  var slideshow = new AllImagesGallery();
-  slideshow.load();
+
+<script type="text/javascript">
+ import AllImagesGallery from './AllImagesGallery'
+  var g = new AllImagesGallery();
+  g.load();  
 </script>
 
     </head>

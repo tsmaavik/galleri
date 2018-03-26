@@ -17,25 +17,17 @@ class AllImagesGallery {
         return body;  
     }
 
-    loadGallery(){
+    loadGallery(){        
         var myGallery = new mbBgndGallery({
             containment:"bgndGallery", // or "#myGalleryElement"
             timer:4000,
             effTimer:2000,
             controls:"#gallery_controls",
             grayScale:false,
-            // If your server allow directory listing
-            //folderPath:"elements/",
-            // else:
-            images:[
-                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/1.jpg",
-                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/2.jpg",
-                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/3.jpg",
-                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/4.jpg",
-                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/5.jpg",
-                "../lib/jquery.mb.bgndGallery-1.9.5/elements/hr/6.jpg"               
-            ],
+            images: this.images            
         });
         myGallery.images = this.images;     
     }    
 }
+
+export function load(){};
