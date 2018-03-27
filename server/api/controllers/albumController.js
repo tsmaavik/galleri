@@ -4,6 +4,8 @@ const fs = require('fs');
 
 const SUPPORTED_EXT = "jpg, jpeg, gif, png";
 const ALBUM_ROOT = "C:\\Users\\NITO\\Documents\\Kode\\galleri\\server\\album";
+const serverUrl = "http://localhost:5000";
+
 
 exports.getAlbums = function(req, res){    
     var dirs = fs.readdirSync(ALBUM_ROOT);
@@ -35,7 +37,7 @@ exports.getAlbum = function(req, res) {
         var fileStats = fs.statSync(currentPath);
         if(fileStats.isFile() && isImage(currentFile))
         {
-            var path = '/api/albums/'+albumName+'/'+files[i];
+            var path = serverUrl+'/api/albums/'+albumName+'/'+files[i];
             images.push(path);
         }
     }
