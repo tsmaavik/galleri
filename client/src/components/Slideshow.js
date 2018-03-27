@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import $ from './JQuery' 
-import mbBgndGallery from 'jquery.mb.bgndgallery';
+// import bgndGallery from mbBgndGallery;
 
 export class Slideshow extends Component{
     constructor()
@@ -11,13 +11,20 @@ export class Slideshow extends Component{
     }
 
     render(){
-        return <div id="bgndGallery"></div>
+        return <div id="bgndGallery" ref='bgndGallery'></div>
     }
 
     componentDidMount(){
+        this.initBgndGallery();
+
         this.getAllImages()
             .then((res) => {this.images = res.images})
             .then(this.loadGallery());
+    }
+
+    initBgndGallery()
+    {
+        // $(this.refs.bgndGallery).mbBgndGallery();
     }
 
     async getAllImages()
@@ -29,7 +36,7 @@ export class Slideshow extends Component{
     }
 
     loadGallery(){                
-        $.mbBgndGallery({
+        var gallery = new mbBgndGallery({
             containment:"#bgndGallery", // or "#myGalleryElement"
             timer:4000,
             effTimer:2000,

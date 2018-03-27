@@ -3,7 +3,7 @@ require('../models/album.js');
 const fs = require('fs');
 
 const SUPPORTED_EXT = "jpg, jpeg, gif, png";
-const ALBUM_ROOT = "C:\\Users\\Trond\\Documents\\Kode\\AlbumSlideshow\\album\\";
+const ALBUM_ROOT = "C:\\Users\\NITO\\Documents\\Kode\\galleri\\server\\album";
 
 exports.getAlbums = function(req, res){    
     var dirs = fs.readdirSync(ALBUM_ROOT);

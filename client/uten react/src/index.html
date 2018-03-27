@@ -7,18 +7,21 @@
     <link href="custom.css" rel="stylesheet" type="text/css">
     <link href="https://unpkg.com/nanogallery2@2.1.0/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="https://unpkg.com/nanogallery2@2.1.0/dist/jquery.nanogallery2.min.js"></script>
+    <script type="text/javascript"src="main.js"></script>
+    <script type="text/javascript"src="slideshow.js"></script>
+
 
   </head>
   <body>
     <div class="main">
 	    <div class="head center">
         <ul>
-          <li>Album</li>
-          <li>Alle bilder</li>	
+          <li><a href='#' onclick="loadAlbumView()">Album</a></li>
+          <li><a href="#" onclick="loadSlideshowView()">Alle bilder</a></li>	
         </ul>
 	    </div>
   
-      <div class="content center">
+      <div id="content" class="content center">
         <div id="nanogallery2" data-nanogallery2='{
           "userID": "44761156@N00",
           "kind": "flickr",
@@ -35,18 +38,9 @@
           },
           "thumbnailHoverEffect2": "toolsAppear|imageScale150",
           "thumbnailAlignment": "justified"
-        }'>
-
-        <!--
-                "userID": "44761156@N00",
-                "kind": "flickr",
-
-              "kind":             "nano_photos_provider2",
-              "dataProvider":     "http://localhost:8080/nano_photos_provider2.php",
-        -->
-        
+        }'>  
         </div>
       </div>
-  	</div>
+    </div>
   </body>
 </html>
