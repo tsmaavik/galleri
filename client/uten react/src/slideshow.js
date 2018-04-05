@@ -1,6 +1,7 @@
 
 var images = [];
 var gallery;
+const serverUrl = "http://localhost:5000";
 
 function loadBgndGallery(){
     
@@ -11,7 +12,7 @@ function loadBgndGallery(){
 
 async function getAllImages()
 {        
-    const response = await fetch ('http://localhost:5000/api/albums/tur',);
+    const response = await fetch (serverUrl+'/api/albums/tur',);
     const body = await response.json();
     if(response.status !== 200) throw Error(body.message);
     return body;  
@@ -19,12 +20,11 @@ async function getAllImages()
 
 function loadGallery(){                
      gallery = new mbBgndGallery({
-        containment:"#bgndGallery", // or "#myGalleryElement"
+        containment:"body",
         timer:4000,
         effTimer:2000,
         controls:"#gallery_controls",
         grayScale:false,
         images: this.images
-    });
-    
+    });    
 }
