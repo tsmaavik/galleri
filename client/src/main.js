@@ -4,7 +4,6 @@ function loadAlbumView(){
 }
 
 function loadSlideshowView() {
-    // $("#content").load("<script type='text/javascript'>loadBgndGallery();</script>");
     loadBgndGallery();
 }
 
