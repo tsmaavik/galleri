@@ -4,6 +4,8 @@ function loadAlbumView(){
 }
 
 function loadSlideshowView() {
+    $("#content").addClass("hidden");
+    $("#head").addClass("hidden");
     loadBgndGallery();
 }
 
@@ -23,7 +25,7 @@ function loadBgndGallery(){
 
 async function getAllImages()
 {        
-    const response = await fetch (serverUrl+'/api/albums/tur',);
+    const response = await fetch (serverUrl+'/api/albums/tur');
     const body = await response.json();
     if(response.status !== 200) throw Error(body.message);
     return body;  
@@ -39,10 +41,14 @@ function loadGallery(){
         images: this.images,
 
         onStart: function() {},
-        onPause: function() {},
+        onPause: galleryPause(),
         onPlay: function( opt ) {},
         onChange: function( opt, idx ) {},
         onNext: function( opt ) {},
         onPrev: function( opt ) {}
     });    
+}
+
+function galleryPause() {
+    $("#head").removeClass("hidden");
 }

@@ -3,7 +3,9 @@ require('../models/album.js');
 const fs = require('fs');
 
 const SUPPORTED_EXT = "jpg, jpeg, gif, png";
-const ALBUM_ROOT = "C:\\Users\\NITO\\Documents\\Kode\\galleri\\server\\album";
+//const ALBUM_ROOT = "C:\\Users\\NITO\\Documents\\Kode\\galleri\\server\\album";
+const ALBUM_ROOT = "C:\\Users\\Trond\\Documents\\Kode\\galleri\\server\\album";
+// const ALBUM_ROOT = __dirname + "/../../album";
 const serverUrl = "http://localhost:5000";
 
 
@@ -49,7 +51,7 @@ exports.getAlbumImg = function(req, res) {
     var albumName = req.params.album;
     var imgName = req.params.img    
     var currentDir  = ALBUM_ROOT + "/" + albumName;
-    var file = currentDir + "/" + imgName;            
+    var file = currentDir + "/" + imgName;                
     res.sendFile(file);
 };
 
