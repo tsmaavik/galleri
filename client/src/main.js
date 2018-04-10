@@ -3,6 +3,24 @@ function loadAlbumView(){
     $('#nanogallery2').nanogallery2('reload');
 }
 
+function playSlideshow()
+{
+    var items = $("#nanogallery2").nanogallery2('itemsSelectedGet');
+    var selectedAlbums = [];
+    this.images = [];    
+    if(items.length > 0)
+    {
+        for(var i = 0; i < items.length; i++) {
+            var item = items[i];         
+            getAllImages(item.title)
+                .then(res => {
+                    this.images = this.images.concat(res.images);                    
+                    this.loadGallery();
+                });
+        }
+    }
+}
+
 function loadSlideshowView() {
     $("#content").addClass("hidden");
     $("#head").addClass("hidden");
@@ -23,9 +41,9 @@ function loadBgndGallery(){
         });
 }
 
-async function getAllImages()
+async function getAllImages(albumName)
 {        
-    const response = await fetch (serverUrl+'/api/albums/tur');
+    const response = await fetch (serverUrl+'/api/albums/'+ albumName);
     const body = await response.json();
     if(response.status !== 200) throw Error(body.message);
     return body;  
